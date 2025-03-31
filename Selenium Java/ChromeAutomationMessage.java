@@ -18,28 +18,9 @@ public class ChromeAutomationMessage {
 	public static void main(String[] args) {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		//Way1
-		options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
-		
-		//Way2
-		options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
-		
-		//Way3
-		options.setExperimentalOption("excludeSwitches", Collections.singleton("enable-automation"));
-		
-		//Way4
-		options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-		
-		//Way5
-		List<String> eSwitches = new ArrayList<>();
-		eSwitches.add("enable-automation");	
-		options.setExperimentalOption("excludeSwitches", eSwitches);
-		
-		//Use any of the one way from above 5ways and comment/remove the remaining 4ways
-		
-		WebDriver driver = new ChromeDriver(options);
+		options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"})	
+	        WebDriver driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
-		driver.get("https://www.google.com/");		
-		
+		driver.get("https://www.google.com/");
 	}
 }
